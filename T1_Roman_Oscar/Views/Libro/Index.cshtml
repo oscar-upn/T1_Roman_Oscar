@@ -1,0 +1,73 @@
+﻿@model IEnumerable<T1_Roman_Oscar.Models.Libro>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- <h1>Index</h1> -->
+<div class="text-center">
+    <h1 class="display-4">Bienvenido a la estantería de libros</h1>
+</div>
+
+<div class="container pt-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Lista de Libros</h2>
+        </div>
+
+        <div class="col-6">
+        </div>
+    </div>
+
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Tema</th>
+                    <th>Editorial</th>
+                    <th>Año de Publicacion</th>
+                    <th>Paginas</th>
+                    <th>Categoría</th>
+                    <th>Material</th>
+                    <th>Copias</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th width="5%">@item.Id</th>
+                        <th width="10%">@item.Titulo</th>
+                        <th width="10%">@item.Autor</th>
+                        <th width="10%">@item.Tema</th>
+                        <th width="10%">@item.Editorial</th>
+                        <th width="10%">@item.AnioPublicacion</th>
+                        <th width="5%">@item.Paginas</th>
+                        <th width="10%">@item.Categoria</th>
+                        <th width="10%">@item.Material</th>
+                        <th width="10%">@item.Copias</th>
+                        <th>
+
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Libro" asp-action="Editar" asp-route-Id="@item.Id" class="btn btn-primary mx-2">Editar</a>
+                                <a asp-controller="Libro" asp-action="Eliminar" asp-route-Id="@item. Id" class="btn btn-danger mx-2">Eliminar</a>
+                            </div>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-primary">No hay registros de Categoria</p>
+    }
+
+</div>
+

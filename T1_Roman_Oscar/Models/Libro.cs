@@ -15,7 +15,5 @@ namespace T1_Roman_Oscar.Models
         public string Categoria { get; set; }
         public string Material {  get; set; }
         public int Copias { get; set; }
-
-        public string Descripcion { get; set; }
     }
 }
